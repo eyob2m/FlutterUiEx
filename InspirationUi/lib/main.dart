@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Find Your",
+                        "Find your",
                         style: TextStyle(color: Colors.black87, fontSize: 25),
                       ),
                       SizedBox(
