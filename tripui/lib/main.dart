@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MainApp());
+  runApp(const MainApp());
 }
 
 class MainApp extends StatefulWidget {
@@ -61,16 +61,16 @@ class _MainAppState extends State<MainApp> {
                   AssetImage(image),
               fit: BoxFit.cover)),
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             gradient: LinearGradient(
                 stops: [.4, .8, 1],
                 begin: Alignment.bottomRight,
                 colors: [Colors.black87, Colors.black54, Colors.black26])),
         child: Padding(
-          padding: EdgeInsets.all(30),
+          padding: const EdgeInsets.all(30),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -80,11 +80,11 @@ class _MainAppState extends State<MainApp> {
               children: [
                 Text(
                   page.toString(),
-                  style: TextStyle(color: Colors.white70, fontSize: 30),
+                  style: const TextStyle(color: Colors.white70, fontSize: 30),
                 ),
                 Text(
                   "/$pgn",
-                  style: TextStyle(color: Colors.white60, fontSize: 20),
+                  style: const TextStyle(color: Colors.white60, fontSize: 20),
                 ),
               ],
             ),
@@ -93,62 +93,82 @@ class _MainAppState extends State<MainApp> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+
+
+            TweenAnimationBuilder(
+                        tween: Tween<double>(begin:-1, end: 0),
+                        child: Text(
                     title,
-                    style: TextStyle(color: Colors.white, fontSize: 40),
+                    style: const TextStyle(color: Colors.white, fontSize: 40),
                   ),
-                  SizedBox(
+                        duration: const Duration(milliseconds: 300),
+                        builder: (context, double value, child) {
+                          return AnimatedOpacity(duration: Duration(milliseconds: 300),opacity: value+1, child: AnimatedSlide(duration: Duration(milliseconds: 300), offset: Offset(0, value),child: child!));
+                        },
+                      )
+                 ,
+                  const SizedBox(
                     height: 10,
                   ),
-                  Row(
+                   TweenAnimationBuilder(
+                        tween: Tween<double>(begin:-1, end: 0),
+                        child:  Row(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(right: 3),
-                        child: Icon(
+                        margin: const EdgeInsets.only(right: 3),
+                        child: const Icon(
                           Icons.star,
                           color: Colors.yellow,
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(right: 3),
-                        child: Icon(
+                        margin: const EdgeInsets.only(right: 3),
+                        child: const Icon(
                           Icons.star,
                           color: Colors.yellow,
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(right: 3),
-                        child: Icon(
+                        margin: const EdgeInsets.only(right: 3),
+                        child: const Icon(
                           Icons.star,
                           color: Colors.yellow,
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(right: 3),
-                        child: Icon(
+                        margin: const EdgeInsets.only(right: 3),
+                        child: const Icon(
                           Icons.star,
                           color: Colors.yellow,
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(right: 7),
-                        child: Icon(
+                        margin: const EdgeInsets.only(right: 7),
+                        child: const Icon(
                           Icons.star,
                           color: Colors.grey,
                         ),
                       ),
                       Text(
                         rating.toString(),
-                        style: TextStyle(color: Colors.white70),
+                        style: const TextStyle(color: Colors.white70),
                       ),
                       Text("($pop)",
                           style: TextStyle(color: Colors.white.withOpacity(.4)))
                     ],
                   ),
-                  SizedBox(
+                        duration: const Duration(milliseconds: 300),
+                        builder: (context, double value, child) {
+                          return AnimatedOpacity(duration: Duration(milliseconds: 300),opacity: value+1, child: AnimatedSlide(duration: Duration(milliseconds: 300), offset: Offset(0, value),child: child!));
+                        },
+                      )
+                 ,
+                  const SizedBox(
                     height: 10,
                   ),
-                  Padding(
+                  TweenAnimationBuilder(
+                        tween: Tween<double>(begin:-1, end: 0),
+                        child:   Padding(
                     padding: const EdgeInsets.only(right: 8.0),
                     child: Text(
                       desc,
@@ -156,14 +176,24 @@ class _MainAppState extends State<MainApp> {
                           height: 1.4, color: Colors.white.withOpacity(.6)),
                     ),
                   ),
-                  SizedBox(
+                        duration: const Duration(milliseconds: 300),
+                        builder: (context, double value, child) {
+                          return AnimatedOpacity(duration: Duration(milliseconds: 300),opacity: value+1, child: child!);
+                        },
+                      )
+                 ,
+                  const SizedBox(
                     height: 10,
                   ),
-                  Container(
-                    padding: EdgeInsets.all(3),
+                   TweenAnimationBuilder(
+                        tween: Tween<double>(begin:-1, end: 0),
+                        child:   Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child:  Container(
+                    padding: const EdgeInsets.all(3),
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.white12, width: 1),
-                        borderRadius: BorderRadius.all(Radius.circular(5))),
+                        borderRadius: const BorderRadius.all(Radius.circular(5))),
                     child: Text(
                       "Read More",
                       style: TextStyle(
@@ -171,6 +201,12 @@ class _MainAppState extends State<MainApp> {
                       ),
                     ),
                   )
+                  ),
+                        duration: const Duration(milliseconds: 300),
+                        builder: (context, double value, child) {
+                          return AnimatedOpacity(duration: Duration(milliseconds: 300),opacity: value+1, child: child!);
+                        },
+                      )
                 ],
               ),
             )
