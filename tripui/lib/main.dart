@@ -78,10 +78,18 @@ class _MainAppState extends State<MainApp> {
               textBaseline: TextBaseline.alphabetic,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text(
+                  TweenAnimationBuilder(
+                        tween: Tween<double>(begin:-1, end: 0),
+                        child: Text(
                   page.toString(),
                   style: const TextStyle(color: Colors.white70, fontSize: 30),
                 ),
+                        duration: const Duration(milliseconds: 300),
+                        builder: (context, double value, child) {
+                          return AnimatedOpacity(duration: Duration(milliseconds: 300),opacity: value+1, child: AnimatedSlide(duration: Duration(milliseconds: 300), offset: Offset(0, value),child: child!));
+                        },
+                      )
+                 ,
                 Text(
                   "/$pgn",
                   style: const TextStyle(color: Colors.white60, fontSize: 20),
